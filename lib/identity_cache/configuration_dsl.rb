@@ -185,6 +185,7 @@ module IdentityCache
       def identity_cache_single_value_dynamic_fetcher(fields, values, sql_on_miss) # :nodoc:
         cache_key = rails_cache_index_key_for_fields_and_values(fields, values)
         id = IdentityCache.fetch(cache_key) { connection.select_value(sql_on_miss) }
+        id = id.first if id.kind_of?(Array)
         unless id.nil?
           record = fetch_by_id(id.to_i)
           IdentityCache.cache.delete(cache_key) unless record
