@@ -1,3 +1,3 @@
 module IdentityCache
-  VERSION = "komal"
+  VERSION = "0.0.0"
 end
