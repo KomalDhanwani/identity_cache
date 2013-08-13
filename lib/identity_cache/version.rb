@@ -1,3 +1,3 @@
 module IdentityCache
-  VERSION = "0.0.0"
+  VERSION = "10.0.0"
 end
